@@ -1,7 +1,4 @@
 #
-# OSSは x-pack がデフォルトで入っていない為そちらを利用したいが、
-# 7.10以降が出ていないため oss ではない方を利用している。
-#
 # 必要な Plugins がある為Dockerfileとして定義しています
 # https://www.docker.elastic.co/r/elasticsearch/elasticsearch
 # https://www.docker.elastic.co/r/elasticsearch/elasticsearch-oss
@@ -17,8 +14,5 @@ FROM docker.elastic.co/elasticsearch/elasticsearch:7.16.2
 #
 RUN elasticsearch-plugin install analysis-kuromoji && \
     elasticsearch-plugin install analysis-icu
-
-# x-pack の無効化
-RUN elasticsearch-plugin remove x-pack
 
 USER elasticsearch
